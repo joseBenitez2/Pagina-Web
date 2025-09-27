@@ -40,6 +40,8 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap; /* para móviles */
+    padding: 0 10px;
 }
 
 .logo {
@@ -51,6 +53,9 @@ header {
 nav ul {
     display: flex;
     gap: 20px;
+    flex-wrap: wrap; /* que no se desborde */
+    justify-content: center;
+    margin-top: 10px;
 }
 
 nav ul li a {
@@ -80,23 +85,24 @@ nav ul li a.active {
 .content {
     flex: 1 1 500px;
     padding: 20px;
+    min-width: 280px;
 }
 
 .content h2 {
-    font-size: 100px;
+    font-size: 4rem;
     margin-bottom: 20px;
     color: #003366;
 }
 
 .content p {
-    font-size: 30px;
+    font-size: 1.2rem;
     margin-bottom: 15px;
     line-height: 1.6;
 }
 
 .contact-list {
     margin-top: 15px;
-    font-size: 25px;
+    font-size: 1.1rem;
 }
 
 .contact-list li {
@@ -124,6 +130,7 @@ nav ul li a.active {
     flex: 1 1 300px;
     text-align: center;
     padding: 20px;
+    min-width: 280px;
 }
 
 .app-image {
@@ -139,4 +146,59 @@ footer {
     color: white;
     text-align: center;
     padding: 20px 0;
+}
+
+/* Media Queries para Responsividad */
+
+/* Tablets y pantallas medianas */
+@media (max-width: 992px) {
+    .content h2 {
+        font-size: 3rem;
+    }
+
+    .content p, .contact-list {
+        font-size: 1rem;
+    }
+}
+
+/* Móviles y pantallas pequeñas */
+@media (max-width: 600px) {
+    .nav-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav ul {
+        justify-content: flex-start;
+        gap: 15px;
+        margin-top: 5px;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        width: 100%;
+    }
+
+    .main-section {
+        padding: 30px 10px;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .content, .image-container {
+        flex: 1 1 100%;
+        min-width: auto;
+        padding: 10px 0;
+    }
+
+    .content h2 {
+        font-size: 2.5rem;
+    }
+
+    .content p, .contact-list {
+        font-size: 1rem;
+    }
+
+    .btn-primary {
+        width: 100%;
+        padding: 15px;
+    }
 }
